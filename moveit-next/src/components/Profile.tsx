@@ -9,11 +9,11 @@ export function Profile() {
       <img src="https://github.com/lazarok09.png" alt="user picture" />
       <div>
         <strong>Lazaro Souza</strong>
-        <p>
-          <img src="icons/level.svg" alt="Level icon" />
+        <p>     
           Level {`${level}`}
         </p>
       </div>
     </div>
+    
   );
 }
