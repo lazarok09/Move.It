@@ -10,46 +10,55 @@ import { ChallengesProvider } from '../contexts/ChallengesContext';
 import styles from  '../styles/pages/Home.module.css';
 import Head from 'next/head';
 
+
 interface HomeProps {
   level: number;
   currentExperience: number;
   challengesCompleted: number;
 }
 
+
+
+
 export default function Home(props: HomeProps) {
+
 
   console.log(props);
   return (
+    <body className={styles.body}>
     <div className={styles.container}>
-      <ChallengesProvider 
-      level={ props.level }
-      currentExperience={ props.currentExperience }
-      challengesCompleted= { props.challengesCompleted }
-      >
-        <Head>
-        <title>
-        Início | move.it  
-        </title>
-        </Head>
-    
-      <ExperienceBar />
 
-      <CountdownProvider>
-        <section>
+        <ChallengesProvider 
+        level={ props.level }
+        currentExperience={ props.currentExperience }
+        challengesCompleted= { props.challengesCompleted }
+        >
+          <Head>
+          <title>
+          Início | move.it  
+          </title>
+          
+          </Head>
+      
+        <ExperienceBar />
+        <CountdownProvider>
+          <section>
 
-          <div>
-          <Profile />
-          <CompletedChallenges />
-          <Countdown />
-          </div>
+            <div>
+            <Profile />
+            <CompletedChallenges />
+            <Countdown />
+            </div>
 
-          <div>
-          <ChallengeBox />
-          </div>
-        </section>
-      </CountdownProvider>
-    </ChallengesProvider>
+            <div>
+            <ChallengeBox />
+            </div>
+          </section>
+        </CountdownProvider>
+      </ChallengesProvider>
+      
     </div>      
+    </body>
       )
 }
 /* Antes de construir a interface em React, passe as propriedades. */

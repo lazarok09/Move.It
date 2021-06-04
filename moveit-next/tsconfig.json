@@ -22,8 +22,11 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/components/ThemeComponent.js"  ],
   "exclude": [
     "node_modules"
+  ],
+  "files": [
+    "src/styles/themes/styled.d.ts",
   ]
 }
