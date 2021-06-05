@@ -3,42 +3,29 @@ import GlobalStyle from '../global';
 
 import light from '../styles/themes/light';
 import dark from '../styles/themes/dark';
-import { useState } from 'react';
-import ReactSwitch from 'react-switch';
+
+import { useContext, useState } from 'react';
+import { ThemeContext } from '../contexts/ThemeContext';
+import SwitchTheme from '../components/SwitchTheme';
 
 function MyApp({ Component, pageProps }) {
-  const  [ theme, setTheme ] = useState(light);
 
+  const themeContext = useContext(ThemeContext);
+  // retirando o tema do contexto
+  const { theme } = themeContext;
 
-  function toggleTheme() {
-    (theme.title == 'light') ? setTheme(dark) : setTheme(light);
-  }
-  function isChecked() {
-    if(theme.title == 'light') {
-      return false;
-    } else if( theme.title == 'dark') {
-      return true;
-    }
-  }
   return (
+  <div> 
+    {/* ao invés de passar direto o arquivo light ou dark, eu quero passar o theme.title */}
+    <ThemeProvider theme = { light } >
+      <p> tema : {theme}</p>
+      <SwitchTheme />
 
-<ThemeProvider theme ={ theme }>
-  <GlobalStyle />
-   {/* switch theme */}
-   <ReactSwitch 
-      onChange={toggleTheme}
-      checked={isChecked()}
-      checkedIcon={false}
-      uncheckedIcon={false}
-      height={10}
-      width={ 40 }
-      handleDiameter={25}
-      offColor={'#000'}
-      onColor={'#D3D3D3'}
-    />
-<div className={theme.colors.background}></div>
-  <Component {...pageProps} />
-</ThemeProvider>
+      <GlobalStyle />
+
+      <Component {...pageProps} />
+    </ThemeProvider>
+  </div>
   );
 }
 
