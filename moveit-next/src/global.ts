@@ -7,16 +7,16 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
   :root {
-    --white: #fff;
+    --white: ${props => props.theme.colors.colorText};
     --background: ${props => props.theme.colors.background};
     --background-body: ${props => props.theme.colors.bodyBackground};
     --gray-line: #dcdde0;
-    --text: #666666;
+    --text: ${props => props.theme.colors.colorText};
     --text-hightlight: #b3b9ff;
-    --title: #2e384d;
+    --title: ${props => props.theme.colors.colorTitle};
     --red: #e83f5b;
     --green: #4cd62b;
-    --blue: #5956e0;
+    --blue: ${props => props.theme.colors.colorStartCicle};
     --blue-dark: #4953b8;
     --blue-twitter: #2aa9e0;
   }
@@ -30,7 +30,6 @@ export default createGlobalStyle`
       font-size: 93.75%;
     }
   }
-  
   body,
   input,
   textarea {

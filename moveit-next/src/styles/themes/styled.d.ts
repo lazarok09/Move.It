@@ -6,6 +6,9 @@ declare module 'styled-components' {
             background: string; 
             bodyBackground: string;
             colorText: string;
+            colorTitle: string;
+            colorStartCicle: string;
+            
         }
     }
 }

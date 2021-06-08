@@ -1,22 +1,28 @@
-import React, { useContext } from 'react';
-import ReactSwitch from 'react-switch';
-import { ThemeContext } from '../contexts/ThemeContext';
+import React, { useContext, ReactNode, useEffect, useState } from "react";
+import ReactSwitch from "react-switch";
 
-export default function SwitchTheme() {
-    
-    const context = useContext(ThemeContext);
-    const {toggleTheme, isChecked}  = context;
-    return (
-    <ReactSwitch 
-    onChange={toggleTheme}
-    checked={false}
-    checkedIcon={false}
-    uncheckedIcon={false}
-    height={10}
-    width={ 40 }
-    handleDiameter={25}
-    offColor={'#000'}
-    onColor={'#D3D3D3'}
-    />
-    );
+interface Props {
+  toggleTheme: () => void;
 }
+
+const SwitchTheme: React.FC<Props> = ({ toggleTheme }) => {
+  const [isActive, setActive] = useState(true);
+  useEffect(() => {
+    isActive == false ? setActive(true) : setActive(false);
+  }, [toggleTheme]);
+
+  return (
+    <ReactSwitch
+      onChange={toggleTheme}
+      checked={isActive}
+      checkedIcon={false}
+      uncheckedIcon={false}
+      height={10}
+      width={40}
+      handleDiameter={25}
+      offColor={"#000"}
+      onColor={"#D3D3D3"}
+    />
+  );
+};
+export default SwitchTheme;

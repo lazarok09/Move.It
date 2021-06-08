@@ -12,6 +12,6 @@
 .completedChallengesContainer span:first {
   font-size: 1.25rem;
 }
-.completedchallengesContainer span:last-child {
-  font-size: 1.5rem;
+.completedChallengesContainer > span {
+  color: var(--title);
 }

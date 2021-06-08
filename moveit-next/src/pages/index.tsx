@@ -22,8 +22,6 @@ interface HomeProps {
 
 export default function Home(props: HomeProps) {
 
-
-  console.log(props);
   return (
     <body className={styles.body}>
     <div className={styles.container}>

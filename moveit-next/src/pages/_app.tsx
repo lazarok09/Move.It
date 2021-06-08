@@ -1,31 +1,40 @@
-import { ThemeProvider } from 'styled-components';
-import GlobalStyle from '../global';
+import { ThemeProvider } from "styled-components";
+import GlobalStyle from "../global";
+import {useState } from "react";
 
-import light from '../styles/themes/light';
-import dark from '../styles/themes/dark';
 
-import { useContext, useState } from 'react';
-import { ThemeContext } from '../contexts/ThemeContext';
-import SwitchTheme from '../components/SwitchTheme';
+import SwitchTheme from "../components/SwitchTheme";
+import light from "../styles/themes/light";
+import dark from "../styles/themes/dark";
 
 function MyApp({ Component, pageProps }) {
-
-  const themeContext = useContext(ThemeContext);
-  // retirando o tema do contexto
-  const { theme } = themeContext;
-
+  // hooks
+  const [theme, setTheme] = useState(light);
+  // toggle theme
+  function toggleTheme() {
+    if (theme.title == "light") {
+      setTheme(dark);
+    } else {
+      setTheme(light);
+    }
+  }
+  function isChecked() {
+    if (theme.title == "light") {
+      return false;
+    } else {
+        return true;
+    }
+  }
   return (
-  <div> 
-    {/* ao invés de passar direto o arquivo light ou dark, eu quero passar o theme.title */}
-    <ThemeProvider theme = { light } >
-      <p> tema : {theme}</p>
-      <SwitchTheme />
+    <div>
+      {/* ao invés de passar direto o arquivo light ou dark, eu quero passar o theme.title */}
+      <ThemeProvider theme={theme}>
+        <SwitchTheme toggleTheme={toggleTheme} />
+        <GlobalStyle />
 
-      <GlobalStyle />
-
-      <Component {...pageProps} />
-    </ThemeProvider>
-  </div>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </div>
   );
 }
 
