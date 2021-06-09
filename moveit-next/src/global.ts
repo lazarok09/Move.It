@@ -8,10 +8,11 @@ export default createGlobalStyle`
   }
   :root {
     --white: ${props => props.theme.colors.colorText};
+    --buttonsColor: ${props => props.theme.colors.colorWhite};
     --background: ${props => props.theme.colors.background};
     --background-body: ${props => props.theme.colors.bodyBackground};
     --gray-line: #dcdde0;
-    --text: ${props => props.theme.colors.colorText};
+    --experienceColor: ${props => props.theme.colors.experienceColor};
     --text-hightlight: #b3b9ff;
     --title: ${props => props.theme.colors.colorTitle};
     --red: #e83f5b;

@@ -22,7 +22,8 @@ span.currentExperience {
   position: absolute;
   top: 12px;
   transform: translateX(-50%);
+  color: var(--experienceColor);
 }
 .experienceColor {
-  color: var(--text);
+  color: var(--experienceColor);
 }

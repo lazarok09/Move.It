@@ -18,13 +18,6 @@ function MyApp({ Component, pageProps }) {
       setTheme(light);
     }
   }
-  function isChecked() {
-    if (theme.title == "light") {
-      return false;
-    } else {
-        return true;
-    }
-  }
   return (
     <div>
       {/* ao invés de passar direto o arquivo light ou dark, eu quero passar o theme.title */}

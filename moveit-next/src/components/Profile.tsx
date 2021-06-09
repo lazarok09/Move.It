@@ -3,9 +3,6 @@ import { useContext } from "react";
 import { ChallengesContext } from "../contexts/ChallengesContext";
 
 
-
-
-
 export function Profile() {
 
   const { level } = useContext(ChallengesContext);

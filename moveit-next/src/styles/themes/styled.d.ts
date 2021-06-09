@@ -7,8 +7,9 @@ declare module 'styled-components' {
             bodyBackground: string;
             colorText: string;
             colorTitle: string;
+            colorWhite: string;
             colorStartCicle: string;
-            
+            experienceColor: string;
         }
     }
 }

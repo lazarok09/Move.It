@@ -1,6 +1,6 @@
-import React, { useContext, ReactNode, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactSwitch from "react-switch";
-
+import styles from "../styles/components/Switch.module.css";
 interface Props {
   toggleTheme: () => void;
 }
@@ -12,7 +12,7 @@ const SwitchTheme: React.FC<Props> = ({ toggleTheme }) => {
   }, [toggleTheme]);
 
   return (
-    <ReactSwitch
+    <ReactSwitch className={styles.switchContainer}
       onChange={toggleTheme}
       checked={isActive}
       checkedIcon={false}
@@ -20,6 +20,8 @@ const SwitchTheme: React.FC<Props> = ({ toggleTheme }) => {
       height={10}
       width={40}
       handleDiameter={25}
+      offHandleColor={"#0366d6"}
+      onHandleColor={"#FFF"}
       offColor={"#000"}
       onColor={"#D3D3D3"}
     />
